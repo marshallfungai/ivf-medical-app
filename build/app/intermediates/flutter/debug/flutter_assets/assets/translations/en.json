@@ -10,7 +10,12 @@
   "app_login_recover_password_btn": "Help Me",
   "app_login_go_back_btn": "Go Back",
 
-  "logout": "Logout",
+  "s_about_us_menu": "About Us",
+  "s_messages_menu": "Messages",
+  "s_appointments_menu": "Appointments",
+  "s_treatments_menu": "Treatments",
+  "s_settings_menu": "Settings",
+  "s_logout_menu": "Logout",
 
   "s_onboarding_skip": "Skip",
   "s_onboarding_next": "Next",
@@ -44,6 +49,5 @@
   "current": "Current Page",
 
   "s_home_find_out_more_btn": "Find out more about us",
-  "s_open_btn": "Open",
-
+  "s_open_btn": "Open"
 }

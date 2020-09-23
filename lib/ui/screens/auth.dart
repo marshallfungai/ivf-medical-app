@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:medical_appointment/global.dart';
 import 'screens.dart';
 
 const users = const {
@@ -20,6 +21,8 @@ class LoginScreen extends StatelessWidget {
       if (users[data.name] != data.password) {
         return 'Password does not match';
       }
+      
+      SharedPreferencesStorage.setSharedPreference('string','user_email', data.name);
       return null;
     });
   }

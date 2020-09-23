@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:medical_appointment/global.dart';
 import 'package:medical_appointment/ui/screens/screens.dart';
 
 void main() {
@@ -13,6 +13,7 @@ void main() {
     path: 'assets/translations',
     supportedLocales: MyApp.list,
     useOnlyLangCode: true,
+    fallbackLocale: Locale('en', 'UK'),
     startLocale: Locale('tr', 'TR'),
   ));
 }
@@ -31,38 +32,40 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   var _checkIsFirstSeen;
+  var _checkStoredLocale;
   var _locale;
-  final windowLocale = ui.window.locale;
+  var windowLocale;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _checkIsFirstSeen = checkIsFirstSeen();
-    _locale = load(windowLocale);
+    _checkIsFirstSeen = SharedPreferencesStorage.checkSharedPreference("seen").then((value) => value);
+    _checkStoredLocale = SharedPreferencesStorage.checkSharedPreference("locale").then((value) => value);
+//     _locale =  _checkStoredLocale ? SharedPreferencesStorage.getSharedPreference('string','locale') : '';
+//
+//     print('_checkIsFirstSeen');
+//     print(_checkStoredLocale);
+//     windowLocale  = ui.window.locale;
+    // windowLocale  = true ? SharedPreferencesStorage.getSharedPreference("String","locale").then((value) => value) : ui.window.locale;
+    //_locale = load(windowLocale);
+
   }
 
-  Future<bool> checkIsFirstSeen() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    if(prefs.containsKey("seen")) {
-      return true;
-    }
-    else {
-      prefs.setBool("seen", true);
-      return false;
-    }
-  }
 
-  Future load(Locale locale) async {
-    try {
-      final first = MyApp.list ?.firstWhere((l) => l?.languageCode == windowLocale?.languageCode);
-      locale = first != null ? first : Locale('en', 'UK');
-    } catch (e) {
-      print(e);
-    }
-
-//    return locale;
-  }
+//  Future load(Locale locale) async {
+//    try {
+//
+//      final first = MyApp.list ?.firstWhere( (l) => l?.languageCode == windowLocale?.languageCode);
+//      locale = first != null ? first : Locale('en', 'UK');
+//
+//    } catch (e) {
+//      print(e);
+//      print('Its err here {$e}');
+//    }
+//
+////    return locale;
+//  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +97,7 @@ class _MyAppState extends State<MyApp> {
                   if(snapshot.data)
                     return LoginScreen();
                   else
+                    SharedPreferencesStorage.setSharedPreference('bool', "seen", true);
                     return OnBoardingScreen();
                 }
                 else {

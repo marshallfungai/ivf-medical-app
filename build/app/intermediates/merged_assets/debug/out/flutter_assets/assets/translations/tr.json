@@ -9,7 +9,13 @@
   "app_login_login_btn": "Oturum aç",
   "app_login_recover_password_btn": "Şifre kurtarma",
   "app_login_go_back_btn": "Geri Dön",
-  "logout": "Çıkış Yap",
+
+  "s_about_us_menu": "Hakkimizda",
+  "s_messages_menu": "Mesajlar",
+  "s_appointments_menu": "Randevular",
+  "s_treatments_menu": "Tedaviler",
+  "s_settings_menu": "Ayarlar",
+  "s_logout_menu": "Çıkış Yap",
 
   "s_onboarding_skip": "Atla",
   "s_onboarding_next": "Sonraki",
@@ -43,7 +49,5 @@
   "current": "Geçerli sayfa",
 
   "s_home_find_out_more_btn": "Hakkımızda daha fazla bilgi edinin",
-  "s_open_btn": "Açık",
-
-
+  "s_open_btn": "Açık"
 }
