@@ -95,12 +95,12 @@ List<DoctorInfo> doctorInfo = [
 List<OnBoardingInstructions> onBoardingInstructions = [
   OnBoardingInstructions(
     "assets/images/onboarding2.png",
-    "Conquer Infertility",
+    tr('s_onboarding_title_1'),
     "Incidunt placeat eos magni quas quam in dignissimos. Asperiores porro distinctio nemo excepturi labore?",
   ),
   OnBoardingInstructions(
     "assets/images/onboarding3.png",
-    "We have a record of high success rates",
+    tr('s_onboarding_title_2'),
     "Incidunt placeat eos magni quas quam in dignissimos. Asperiores porro distinctio nemo excepturi labore?",
   ),
 ];

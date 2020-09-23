@@ -1,17 +1,28 @@
 {
-  "app_name": "Cyprus IVF",
-  "payment": "Payment",
-  "promos": "Promos",
-  "notifications": "Notifications",
-  "help": "Help",
-  "about_us": "About Us",
-  "rate_us": "Rate Us",
-  "page": "Page",
-  "current": "Current Page",
-  "name": "Adan Balina",
+  "s_app_name": "Cyprus IVF",
+  "app_login_username_placeholder": "Username",
+  "app_login_email_placeholder": "Email",
+  "app_login_password_placeholder": "Password",
+  "app_login_confirm_password_placeholder": "Confirm Password",
+  "app_login_forgot_password_placeholder": "Forgot huh?",
+  "app_login_sign_up_btn": "Signup",
+  "app_login_login_btn": "Login",
+  "app_login_recover_password_btn": "Help Me",
+  "app_login_go_back_btn": "Go Back",
+
   "logout": "Logout",
 
+  "s_onboarding_skip": "Skip",
+  "s_onboarding_next": "Next",
+  "s_onboarding_previous": "Previous",
+  "s_onboarding_title_1": "Conquer Infertility",
+  "s_onboarding_title_2": "We have a record of high success rates",
 
+  "notifications": "Notifications",
+
+  "s_sperm_donation": "Sperm Donation",
+  "s_egg_donation": "Egg Donation",
+  "s_intro_vitrolization": "Intro Vitrolization",
   "top_doctors": "Top Doctors",
   "welcome_to": "Welcome to, ",
   "see_all": "See All",
@@ -26,11 +37,13 @@
   "s_certifications": "Certifications",
   "s_make_an_appointment": "Make An Appointement",
   "s_years": "Years",
+  "help": "Help",
+  "about_us": "About Us",
+  "rate_us": "Rate Us",
+  "page": "Page",
+  "current": "Current Page",
 
   "s_home_find_out_more_btn": "Find out more about us",
   "s_open_btn": "Open",
 
-  "s_sperm_donation": "Sperm Donation",
-  "s_egg_donation": "Egg Donation",
-  "s_intro_vitrolization": "Intro Vitrolization"
 }

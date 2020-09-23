@@ -1,4 +1,4 @@
-#Tue Sep 22 23:41:59 EEST 2020
+#Wed Sep 23 12:10:22 EEST 2020
 base.0=C\:\\Users\\marshall.m\\Documents\\Personal\\Apps\\flutter\\medical_appointment\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

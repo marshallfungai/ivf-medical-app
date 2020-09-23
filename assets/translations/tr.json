@@ -1,17 +1,27 @@
 {
   "app_name": "Kıbrıs Tüp Bebek",
-  "payment": "Ödeme",
-  "promos": "Promosyonlar",
-  "notifications": "Bildirimler",
-  "help": "Yardım",
-  "about_us": "Hakkımızda",
-  "rate_us": "Bizi değerlendirin",
-  "page": "Sayfa",
-  "current": "Geçerli sayfa",
-  "name": "Adan Balina",
+  "app_login_username_placeholder": "Kullanıcı adı",
+  "app_login_email_placeholder": "E-posta",
+  "app_login_password_placeholder": "Parola",
+  "app_login_confirm_password_placeholder": "Şifreyi Onayla",
+  "app_login_forgot_password_placeholder": "Parolanızı mı unuttunuz",
+  "app_login_sign_up_btn": "Kaydol",
+  "app_login_login_btn": "Oturum aç",
+  "app_login_recover_password_btn": "Şifre kurtarma",
+  "app_login_go_back_btn": "Geri Dön",
   "logout": "Çıkış Yap",
 
+  "s_onboarding_skip": "Atla",
+  "s_onboarding_next": "Sonraki",
+  "s_onboarding_previous": "Önceki",
+  "s_onboarding_title_1": "Kısırlık Tedavisi",
+  "s_onboarding_title_2": "Yüksek başarı oranlarına sahibiz",
 
+  "notifications": "Bildirimler",
+
+  "s_sperm_donation": "Sperm Donasyonu",
+  "s_egg_donation": "Yumurta Donasyonu",
+  "s_intro_vitrolization": "IVF (in vitro fertilizasyon)",
   "top_doctors": "En İyi Doktorlar",
   "see_all": "Tümünü Gör",
   "welcome_to": "Hoşgeldiniz,",
@@ -26,11 +36,12 @@
   "s_certifications": "Sertifikalar",
   "s_make_an_appointment": "Randevu Al",
   "s_years": "Yiller",
+  "help": "Yardım",
+  "about_us": "Hakkımızda",
+  "rate_us": "Bizi değerlendirin",
+  "page": "Sayfa",
+  "current": "Geçerli sayfa",
 
   "s_home_find_out_more_btn": "Hakkımızda daha fazla bilgi edinin",
-  "s_open_btn": "Açık",
-
-  "s_sperm_donation": "Sperm Donasyonu",
-  "s_egg_donation": "Yumurta Donasyonu",
-  "s_intro_vitrolization": "IVF (in vitro fertilizasyon) "
+  "s_open_btn": "Açık"
 }

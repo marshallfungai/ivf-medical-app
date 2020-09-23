@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'screens.dart';
 
@@ -36,7 +37,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlutterLogin(
-      title: 'Cyprus IVF',
+      title: tr('app_name'),
       logo: 'assets/images/dogus-ivf-login-logo.png',
       onLogin: _authUser,
       onSignup: _authUser,
@@ -52,6 +53,20 @@ class LoginScreen extends StatelessWidget {
           fontSize: 15 ,
            letterSpacing: 4,
         ),
+      ),
+      messages: LoginMessages(
+        usernameHint: tr('app_login_username_placeholder'),
+        passwordHint:  tr('app_login_password_placeholder'),
+        confirmPasswordHint: tr('app_login_confirm_password_placeholder'),
+        loginButton: tr('app_login_login_btn'),
+        signupButton: tr('app_login_sign_up_btn'),
+        forgotPasswordButton: tr('app_login_forgot_password_placeholder'),
+        recoverPasswordButton: tr('app_login_recover_password_btn'),
+        goBackButton: tr('app_login_go_back_btn'),
+        confirmPasswordError: 'Not match!',
+        recoverPasswordDescription:
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+        recoverPasswordSuccess: 'Password rescued successfully',
       ),
     );
   }

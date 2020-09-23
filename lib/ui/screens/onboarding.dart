@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:medical_appointment/global.dart';
 
@@ -17,7 +18,7 @@ class OnBoardingScreen extends StatelessWidget {
             children: <Widget>[
               Align(
                 alignment: Alignment.centerRight,
-                child: FlatButton(onPressed: () => Navigator.pushReplacementNamed(context, 'auth'), child: Text('Skip')),
+                child: FlatButton(onPressed: () => Navigator.pushReplacementNamed(context, 'auth'), child: Text(tr('s_onboarding_skip'))),
               ),
               Expanded(
                   child: PageView.builder(
@@ -74,7 +75,7 @@ class OnBoardingScreen extends StatelessWidget {
                     ),
                     color: MyColors.pink,
                     child: Text(
-                      "Next",
+                      tr('s_onboarding_next'),
                       style: Theme.of(context).textTheme.button,
                     ),
                     onPressed: () {
