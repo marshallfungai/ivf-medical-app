@@ -1,0 +1,36 @@
+{
+  "app_name": "Cyprus IVF",
+  "payment": "Payment",
+  "promos": "Promos",
+  "notifications": "Notifications",
+  "help": "Help",
+  "about_us": "About Us",
+  "rate_us": "Rate Us",
+  "page": "Page",
+  "current": "Current Page",
+  "name": "Adan Balina",
+  "logout": "Logout",
+
+
+  "top_doctors": "Top Doctors",
+  "welcome_to": "Welcome to, ",
+  "see_all": "See All",
+  "s_categories": "Categories",
+  "s_why_choose_us": "Why choose Cyprus IVF Center?",
+  "s_see_all_reviews": "See all reviews",
+  "s_about": "About",
+  "s_working_hours": "Working Hours",
+  "s_stats": "Stats",
+  "s_patients": "Patients",
+  "s_experience": "Experience",
+  "s_certifications": "Certifications",
+  "s_make_an_appointment": "Make An Appointement",
+  "s_years": "Years",
+
+  "s_home_find_out_more_btn": "Find out more about us",
+  "s_open_btn": "Open",
+
+  "s_sperm_donation": "Sperm Donation",
+  "s_egg_donation": "Egg Donation",
+  "s_intro_vitrolization": "Intro Vitrolization"
+}

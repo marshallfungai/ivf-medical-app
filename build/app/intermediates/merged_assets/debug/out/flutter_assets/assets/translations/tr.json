@@ -1,0 +1,36 @@
+{
+  "app_name": "Kıbrıs Tüp Bebek",
+  "payment": "Ödeme",
+  "promos": "Promosyonlar",
+  "notifications": "Bildirimler",
+  "help": "Yardım",
+  "about_us": "Hakkımızda",
+  "rate_us": "Bizi değerlendirin",
+  "page": "Sayfa",
+  "current": "Geçerli sayfa",
+  "name": "Adan Balina",
+  "logout": "Çıkış Yap",
+
+
+  "top_doctors": "En İyi Doktorlar",
+  "see_all": "Tümünü Gör",
+  "welcome_to": "Hoşgeldiniz,",
+  "s_categories": "Kategoriler",
+  "s_why_choose_us": "Neden Kıbrıs Tüp Bebek Merkezini Seçmelisiniz?",
+  "s_see_all_reviews": "Tüm incelemelere bakın",
+  "s_about": "Hakkında",
+  "s_working_hours": "Çalışma saatleri",
+  "s_stats": "İstatistikler",
+  "s_patients": "Hastalar",
+  "s_experience": "Deneyim",
+  "s_certifications": "Sertifikalar",
+  "s_make_an_appointment": "Randevu Al",
+  "s_years": "Yiller",
+
+  "s_home_find_out_more_btn": "Hakkımızda daha fazla bilgi edinin",
+  "s_open_btn": "Açık",
+
+  "s_sperm_donation": "Sperm Donasyonu",
+  "s_egg_donation": "Yumurta Donasyonu",
+  "s_intro_vitrolization": "IVF (in vitro fertilizasyon) "
+}
