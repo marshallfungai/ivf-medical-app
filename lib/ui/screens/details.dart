@@ -97,7 +97,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               ),
                               child: IconButton(
                                 icon: Icon(
-                                  Icons.email,
+                                  Icons.phone,
                                   color: Colors.white,
                                 ),
                                 onPressed: () {},

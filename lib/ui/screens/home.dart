@@ -79,12 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height / 5,
                     child: GestureDetector(
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => DetailsScreen(id: 0),
-                        ),
-                      ),
+                      onTap: () => {},
                       child: Stack(
                         children: <Widget>[
                           Align(
@@ -121,10 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       tr('s_home_find_out_more_btn'),
                                       style: Theme.of(context).textTheme.button,
                                     ),
-                                    onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => DetailsScreen(id: 0),  ),
-                                    ),
+                                    onPressed: () => Navigator.push( context, MaterialPageRoute(builder: (context) => AppointmentsScreen(), ), ),
                                   )
                                 ],
                               ),

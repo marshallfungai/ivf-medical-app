@@ -145,7 +145,7 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                         ),
                         Text(
                           tr('s_working_hours'),
-                          style: Theme.of(context).textTheme.subtitle,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                         Row(
                           children: <Widget>[
@@ -173,7 +173,7 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                         SizedBox(height: 15),
                         Text(
                           tr('s_stats'),
-                          style: Theme.of(context).textTheme.subtitle,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                         SizedBox(height: 11),
                         Row(
@@ -182,7 +182,7 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                             Column(
                               children: <Widget>[
                                 Text("${doctorInfo[widget.id].patientsCount}",
-                                    style: Theme.of(context).textTheme.title),
+                                    style: Theme.of(context).textTheme.headline6),
                                 Text(
                                   tr('s_patients'),
                                   style: TextStyle(color: Colors.grey),

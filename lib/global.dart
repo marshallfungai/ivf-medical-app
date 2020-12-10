@@ -193,7 +193,7 @@ List<Map<String, dynamic>> categories = [
   },
 ];
 
-String avatar = "https://pbs.twimg.com/profile_images/1233356631188082689/qcmTohZh_400x400.jpg";
+String avatar = "https://image.freepik.com/free-photo/smiling-photographer-posing_23-2148019162.jpg";
 String hospitalLogo = "assets/images/dogus-ivf-logo.png";
 
 

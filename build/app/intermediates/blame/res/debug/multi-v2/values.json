@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\marshall.m\\Documents\\Personal\\Apps\\flutter\\medical_appointment\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\marshall.m\\Documents\\Apps\\MOBILE\\__app.medical_appointment\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\marshall.m\\Documents\\Personal\\Apps\\flutter\\medical_appointment\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\marshall.m\\Documents\\Apps\\MOBILE\\__app.medical_appointment\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

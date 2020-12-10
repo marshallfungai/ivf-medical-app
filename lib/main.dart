@@ -35,41 +35,23 @@ class _MyAppState extends State<MyApp> {
   var _checkStoredLocale;
   var _locale;
   var windowLocale;
+  //windowLocale  = ui.window.locale;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     _checkIsFirstSeen = SharedPreferencesStorage.checkSharedPreference("seen").then((value) => value);
-    _checkStoredLocale = SharedPreferencesStorage.checkSharedPreference("locale").then((value) => value);
-//     _locale =  _checkStoredLocale ? SharedPreferencesStorage.getSharedPreference('string','locale') : '';
-//
-//     print('_checkIsFirstSeen');
-//     print(_checkStoredLocale);
-//     windowLocale  = ui.window.locale;
-    // windowLocale  = true ? SharedPreferencesStorage.getSharedPreference("String","locale").then((value) => value) : ui.window.locale;
-    //_locale = load(windowLocale);
+
+    _checkStoredLocale = SharedPreferencesStorage.checkSharedPreference("locale");
+
 
   }
-
-
-//  Future load(Locale locale) async {
-//    try {
-//
-//      final first = MyApp.list ?.firstWhere( (l) => l?.languageCode == windowLocale?.languageCode);
-//      locale = first != null ? first : Locale('en', 'UK');
-//
-//    } catch (e) {
-//      print(e);
-//      print('Its err here {$e}');
-//    }
-//
-////    return locale;
-//  }
 
   @override
   Widget build(BuildContext context) {
 
+    final textTheme = Theme.of(context).textTheme;
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -86,30 +68,46 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.pink,
         backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
-        textTheme: GoogleFonts.openSansTextTheme().copyWith(
-          button: TextStyle(color: Colors.white),
-        ),
+        //textTheme: GoogleFonts.latoTextTheme(textTheme),
+        textTheme: GoogleFonts.openSansTextTheme().copyWith( button: TextStyle(color: Colors.white),),
       ),
-      home:  FutureBuilder(
-              future: _checkIsFirstSeen,
-              builder: (ctx, snapshot) {
-                if(snapshot.hasData){
-                  if(snapshot.data)
-                    return LoginScreen();
-                  else
-                    SharedPreferencesStorage.setSharedPreference('bool', "seen", true);
-                    return OnBoardingScreen();
-                }
-                else {
-                  return Scaffold( body: Center(child: CircularProgressIndicator(),),);
-                }
-              },
-     ),
+      home: FutureBuilder<String>(
+        future: SharedPreferencesStorage.getSharedPreferenceString("locale"),
+        builder: (context, snapshot) {
+
+          var lang = snapshot.data == null ? ui.window.locale : snapshot.data;
+         // SharedPreferencesStorage.setSharedPreference('string', "locale", lang);
+         //setLocale(context, lang);
+
+          return FutureBuilder(
+                  future: _checkIsFirstSeen,
+                  builder: (ctx, snapshot) {
+                    if(snapshot.hasData){
+                      if(snapshot.data)
+                        return LoginScreen();
+                      else
+                        SharedPreferencesStorage.setSharedPreference('bool', "seen", true);
+                        return OnBoardingScreen();
+                    }
+                    else {
+                      return Scaffold( body: Center(child: CircularProgressIndicator(),),);
+                    }
+                  },
+     );
+        }
+      ),
       routes: {
         'home':(ctx) => HomeScreen(),
         'auth':(ctx) => LoginScreen(),
+        'settings':(ctx) => SettingsScreen(),
+        'aboutUs':(ctx) => AboutUsScreen(),
       },
     );
+  }
+
+  void setLocale(context, lang){
+    print("its here $lang");
+    context.locale = Locale(lang);
   }
 }
 
