@@ -7,6 +7,7 @@ import 'screens.dart';
 const users = const {
   'jeniffer@gmail.com': '12345',
   'demo@gmail.com': 'demo',
+  'example@email.com': 'password',
 };
 
 class LoginScreen extends StatelessWidget {

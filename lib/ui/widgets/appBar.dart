@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:medical_appointment/ui/screens/profileScreen.dart';
+
+import '../../global.dart';
 
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   bool hasBackButton = false;
   
-  MainAppBar({this.hasBackButton});
+  MainAppBar({this.hasBackButton = false});
   @override
   _MainAppBarState createState() => _MainAppBarState();
 
@@ -38,7 +41,18 @@ class _MainAppBarState extends State<MainAppBar> {
         ),
       ),
       actions: [
-
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen() ) );
+            },
+            child: CircleAvatar(
+              backgroundImage: NetworkImage("$avatar"),
+              //backgroundImage: ImageIcon(),
+            ),
+          ),
+        )
       ],
     );
   }

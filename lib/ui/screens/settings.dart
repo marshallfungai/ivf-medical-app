@@ -23,7 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(hasBackButton: true),
+      appBar: MainAppBar(),
       drawer: SideDrawer(),
       body: Column(
         children: [

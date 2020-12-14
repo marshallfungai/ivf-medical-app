@@ -16,6 +16,8 @@ class SharedPreferencesStorage {
 
   }
 
+
+
   static Future<void> setSharedPreference(s_type, s_key, value) async {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -37,20 +39,23 @@ class SharedPreferencesStorage {
 
     return true;
   }
-  static Future getSharedPreference(s_type, s_key) async {
+
+
+
+  static Future getSharedPreference(type, key) async {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    s_key = s_key.toLowerCase();
+    key = key.toLowerCase();
 
-    switch(s_type) {
+    switch(type) {
       case 'int':
-        prefs.getInt(s_key);
+        prefs.getInt(key);
         break;
       case 'string':
-        prefs.getString(s_key);
+        prefs.getString(key);
         break;
       case 'bool':
-        prefs.getBool(s_key);
+        prefs.getBool(key);
         break;
       default:
         return false;
@@ -58,21 +63,28 @@ class SharedPreferencesStorage {
 
     return true;
   }
-  static Future<String> getSharedPreferenceString(s_key) async {
+
+
+  static Future<String> getSharedPreferenceString(key) async {
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    return prefs.getString(s_key);
+    return prefs.getString(key);
 
   }
 
+
 }
+
+
 
 class OnBoardingInstructions {
   final String image, title,subtitle;
 
   OnBoardingInstructions(this.image, this.title, this.subtitle);
 }
+
+
 
 class MyColors {
   static const grey = Color(0xfff3f3f3),
@@ -84,6 +96,8 @@ class MyColors {
       navyBlue = Color(0xff484186),
       pink = Color(0xffe9008c);
 }
+
+
 
 class DoctorInfo {
   final String name,
@@ -119,6 +133,8 @@ class PageName {
     this.name,
   });
 }
+
+
 
 List<DoctorInfo> doctorInfo = [
   DoctorInfo(
@@ -193,8 +209,10 @@ List<Map<String, dynamic>> categories = [
   },
 ];
 
-String avatar = "https://image.freepik.com/free-photo/smiling-photographer-posing_23-2148019162.jpg";
+String avatar = "https://image.freepik.com/free-photo/indoor-shot-happy-young-woman-with-glasses-posing-against-white-wall_273609-20361.jpg";
 String hospitalLogo = "assets/images/dogus-ivf-logo.png";
+String mainOffice = "https://image.freepik.com/free-photo/office-skyscrapers-business-district_107420-95733.jpg";
+String treatmentsBG = "https://image.freepik.com/free-photo/physician-noting-down-symptoms-patient_53876-63308.jpg";
 
 
 List<Map<String, dynamic>> aboutUsPages = [

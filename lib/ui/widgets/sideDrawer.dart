@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_svg/avd.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical_appointment/global.dart';
+import 'package:medical_appointment/ui/screens/profileScreen.dart';
 import 'package:medical_appointment/ui/screens/screens.dart';
 
 class SideDrawer extends StatefulWidget {
@@ -40,53 +41,69 @@ class _SideDrawerState extends State<SideDrawer> {
                 // Important: Remove any padding from the ListView.
                 padding: EdgeInsets.zero,
                 children: <Widget>[
-                  Container(
-                    height: MediaQuery.of(context).size.height / 4 ,
-                    child: DrawerHeader(
-                      decoration: BoxDecoration(
-                        //  color: Colors.pinkAccent,
-                          gradient: LinearGradient(colors: <Color>[
-                            Colors.pinkAccent,
-                            Colors.pink,
-                            Color(0xffe9008c)
-                          ])
-                      ),
-                      child: ListView(
-                        children: [
-                          Column(
-                            children: [
-                              Container(
-                                height: 70,
-                                width: 70,
-                                margin: EdgeInsets.only(top: 10, bottom: 10),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle ,
-                                  image: DecorationImage(
-                                      image: AssetImage('assets/images/profile-user.jpg'),
-                                      fit: BoxFit.cover
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen() ) );
+                    },
+                    child: Container(
+                      height: MediaQuery.of(context).size.height / 4 ,
+                      child: DrawerHeader(
+                        decoration: BoxDecoration(
+                          //  color: Colors.pinkAccent,
+                            gradient: LinearGradient(colors: <Color>[
+                              Colors.pinkAccent,
+                              Colors.pink,
+                              Color(0xffe9008c)
+                            ])
+                        ),
+                        child: ListView(
+                          children: [
+                            Column(
+                              children: [
+                                Container(
+                                  height: 70,
+                                  width: 70,
+                                  margin: EdgeInsets.only(top: 10, bottom: 10),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle ,
+                                    image: DecorationImage(
+                                        image: NetworkImage("$avatar"),
+                                        fit: BoxFit.cover
+                                    ),
+                                  ),
+                                  // child: Text('Drawer Header')
+                                ),
+                                Text('Mrs Veronica Mars',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(.5),
+                                    fontSize: 15,
                                   ),
                                 ),
-                                // child: Text('Drawer Header')
-                              ),
-                              Text('Mrs Veronica Mars',
-                                style: TextStyle(
-                                  color: Colors.white.withOpacity(.5),
-                                  fontSize: 15,
-                                ),
-                              ),
-                              SizedBox(height: 4),
-                              Text( userEmail,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                ),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
+                                SizedBox(height: 4),
+                                Text( userEmail,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 14,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
 
+                      ),
                     ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.home_work_outlined),
+                    title: Text('Ana Sayfa'),
+                    subtitle: Text('Everything you need ',
+                      style: TextStyle(
+                        //color: Colors.grey,
+
+                      ),
+                    ),
+                      onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => HomeScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.local_hospital),

@@ -11,7 +11,7 @@ class _AppointmentsScreenState extends State<AppointmentsScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: MainAppBar(hasBackButton: true),
+        appBar: MainAppBar(hasBackButton: false),
         drawer: SideDrawer(),
         body: Center(
           child: Container(

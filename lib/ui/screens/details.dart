@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:medical_appointment/global.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsScreen extends StatefulWidget {
   final int id;
@@ -13,6 +14,20 @@ class DetailsScreen extends StatefulWidget {
 
 class _DetailsScreenState extends State<DetailsScreen> {
   bool _showMoreAbout = false;
+
+  Future<void> _launched;
+  String _phone = '';
+
+  Future<void> _makePhoneCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -100,7 +115,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   Icons.phone,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  setState(() {
+                                    _launched = _makePhoneCall('tel: +90 54 000 000 000');
+                                  });
+                                },
                               ),
                             ),
                             SizedBox(width: 15),
