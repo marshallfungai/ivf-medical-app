@@ -82,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child:Column(
                       children: [
                         Text(
-                         'Natasha',
+                         'Zehra',
                           style: Theme.of(context).textTheme.headline4,
                         ),
                         Text(
@@ -135,14 +135,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        'Became Member',
+                        'Bize katıldı',
                         style: TextStyle(
                           fontSize: 18.0,
                         ),
                       ),
                       SizedBox(height: 4.0),
                       Text(
-                        "21 August 2020",
+                        "21 Ağustos 2020",
                         style: TextStyle(
                           color: Colors.grey[700],
                           fontSize: 12.0,
@@ -180,14 +180,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        'Email',
+                        'E-posta',
                         style: TextStyle(
                           fontSize: 18.0,
                         ),
                       ),
                       SizedBox(height: 4.0),
                       Text(
-                        "adana.mustafa@gmail.com",
+                        "example@email.com",
                         style: TextStyle(
                           color: Colors.grey[700],
                           fontSize: 12.0,
@@ -270,7 +270,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        'Location',
+                        'Konum',
                         style: TextStyle(
                           fontSize: 18.0,
                         ),

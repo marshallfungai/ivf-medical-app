@@ -73,7 +73,7 @@ class _SideDrawerState extends State<SideDrawer> {
                                   ),
                                   // child: Text('Drawer Header')
                                 ),
-                                Text('Mrs Veronica Mars',
+                                Text('Zehra',
                                   style: TextStyle(
                                     color: Colors.white.withOpacity(.5),
                                     fontSize: 15,

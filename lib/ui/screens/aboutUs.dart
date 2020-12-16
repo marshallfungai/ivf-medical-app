@@ -156,7 +156,7 @@ class _AboutUsScreenState extends State<AboutUsScreen> {
                                 child: Container(
                                   padding: const EdgeInsets.all(9.0),
                                   child: Text(
-                                    tr('s_available_btn'),
+                                    tr('s_open_btn'),
                                     style: Theme.of(context)
                                         .textTheme
                                         .button
