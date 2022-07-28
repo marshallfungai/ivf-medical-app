@@ -1,7 +1,8 @@
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:medical_appointment/ui/widgets/widgets.dart';
+
+import '../widgets/appBar.dart';
+import '../widgets/sideDrawer.dart';
 
 class SettingsScreen extends StatefulWidget {
   @override
@@ -9,15 +10,9 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  List <MenuItem> menuItems = [
-    MenuItem(
-        "Notfications",
-        Icon(CommunityMaterialIcons.bell)
-    ),
-    MenuItem(
-        "Privacy Settings",
-        Icon(CommunityMaterialIcons.incognito)
-    ),
+  List<MenuItem> menuItems = [
+    MenuItem("Notfications", Icon(CommunityMaterialIcons.bell)),
+    MenuItem("Privacy Settings", Icon(CommunityMaterialIcons.incognito)),
   ];
 
   @override
@@ -31,9 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: const Text('Language'),
             value: true,
             onChanged: (bool value) {
-              setState(() {
-
-              });
+              setState(() {});
             },
             secondary: const Icon(Icons.lightbulb_outline),
           ),
@@ -55,8 +48,5 @@ class MenuItem {
   String title;
   var icon;
 
-  MenuItem(
-      this.title,
-      this.icon
-      );
+  MenuItem(this.title, this.icon);
 }

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+// import 'package:smooth_star_rating/smooth_star_rating.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../global.dart';
 
 class DetailsScreen extends StatefulWidget {
   final int id;
 
-  const DetailsScreen({Key key, @required this.id}) : super(key: key);
+  const DetailsScreen({required this.id});
   @override
   _DetailsScreenState createState() => _DetailsScreenState();
 }
@@ -15,7 +16,7 @@ class DetailsScreen extends StatefulWidget {
 class _DetailsScreenState extends State<DetailsScreen> {
   bool _showMoreAbout = false;
 
-  Future<void> _launched;
+  late Future<void> _launched;
   String _phone = '';
 
   Future<void> _makePhoneCall(String url) async {
@@ -25,8 +26,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
       throw 'Could not launch $url';
     }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +95,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                 children: <Widget>[
                                   Text(
                                     "${doctorInfo[widget.id].name}",
-                                    style: Theme.of(context).textTheme.subtitle,
+                                    style:
+                                        Theme.of(context).textTheme.subtitle2,
                                   ),
                                   Text(
                                     "${doctorInfo[widget.id].type}",
@@ -117,7 +117,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    _launched = _makePhoneCall('tel: +90 54 000 000 000');
+                                    _launched = _makePhoneCall(
+                                        'tel: +90 54 000 000 000');
                                   });
                                 },
                               ),
@@ -138,33 +139,33 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             ),
                           ],
                         ),
-                        Row(
-                          children: <Widget>[
-                            SmoothStarRating(
-                              rating: doctorInfo[widget.id].reviews,
-                              size: 15,
-                              color: MyColors.orange,
-                            ),
-                            Text("(${doctorInfo[0].reviewCount} Reviews)"),
-                            Expanded(
-                              child: FlatButton(
-                                child: FittedBox(
-                                  child: Text(
-                                    tr('s_see_all_reviews'),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .button
-                                        .copyWith(color: MyColors.blue),
-                                  ),
-                                ),
-                                onPressed: () {},
-                              ),
-                            )
-                          ],
-                        ),
+                        // Row(
+                        //   children: <Widget>[
+                        //     SmoothStarRating(
+                        //       rating: doctorInfo[widget.id].reviews,
+                        //       size: 15,
+                        //       color: MyColors.orange,
+                        //     ),
+                        //     Text("(${doctorInfo[0].reviewCount} Reviews)"),
+                        //     Expanded(
+                        //       child: TextButton(
+                        //         child: FittedBox(
+                        //           child: Text(
+                        //             tr('s_see_all_reviews'),
+                        //             style: Theme.of(context)
+                        //                 .textTheme
+                        //                 .button
+                        //                 ?.copyWith(color: MyColors.blue),
+                        //           ),
+                        //         ),
+                        //         onPressed: () {},
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
                         Text(
                           tr('s_about'),
-                          style: Theme.of(context).textTheme.subtitle,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                         Wrap(
                           children: <Widget>[
@@ -172,13 +173,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               "${doctorInfo[widget.id].about}",
                               maxLines: _showMoreAbout ? null : 1,
                             ),
-                            FlatButton(
+                            TextButton(
                               child: Text(
                                 _showMoreAbout ? "See Less" : "See More",
                                 style: Theme.of(context)
                                     .textTheme
                                     .button
-                                    .copyWith(color: MyColors.blue),
+                                    ?.copyWith(color: MyColors.blue),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -190,7 +191,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         ),
                         Text(
                           tr('s_working_hours'),
-                          style: Theme.of(context).textTheme.subtitle,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                         Row(
                           children: <Widget>[
@@ -205,7 +206,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .button
-                                      .copyWith(color: MyColors.darkGreen),
+                                      ?.copyWith(color: MyColors.darkGreen),
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
@@ -218,7 +219,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         SizedBox(height: 15),
                         Text(
                           tr('s_stats'),
-                          style: Theme.of(context).textTheme.subtitle,
+                          style: Theme.of(context).textTheme.subtitle2,
                         ),
                         SizedBox(height: 11),
                         Row(
@@ -227,7 +228,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             Column(
                               children: <Widget>[
                                 Text("${doctorInfo[widget.id].patientsCount}",
-                                    style: Theme.of(context).textTheme.title),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium),
                                 Text(
                                   tr('s_patients'),
                                   style: TextStyle(color: Colors.grey),
@@ -238,7 +241,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                               children: <Widget>[
                                 Text(
                                     "${doctorInfo[widget.id].experience} Years",
-                                    style: Theme.of(context).textTheme.title),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium),
                                 Text(
                                   tr('s_experience'),
                                   style: TextStyle(color: Colors.grey),
@@ -248,7 +253,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
                             Column(
                               children: <Widget>[
                                 Text("${doctorInfo[widget.id].certifications}",
-                                    style: Theme.of(context).textTheme.title),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium),
                                 Text(
                                   tr('s_certifications'),
                                   style: TextStyle(color: Colors.grey),
@@ -260,16 +267,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         SizedBox(height: 15),
                         SizedBox(
                           width: double.infinity,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: MyColors.blue,
+                              onPrimary: Colors.white,
+                              shadowColor: Colors.greenAccent,
+                              elevation: 3,
+                              textStyle: Theme.of(context).textTheme.button,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
+                              minimumSize: Size(100, 40), //////// HERE
                             ),
-                            color: MyColors.blue,
+                            onPressed: () {},
                             child: Text(
                               tr('s_make_an_appointment'),
                               style: Theme.of(context).textTheme.button,
                             ),
-                            onPressed: () {},
                           ),
                         ),
                       ],

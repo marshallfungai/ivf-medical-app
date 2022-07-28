@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+
+import '../../global.dart';
 
 class TreatmentDetailScreen extends StatefulWidget {
   final id;
-  const TreatmentDetailScreen({Key key , this.id}) : super(key: key);
+  const TreatmentDetailScreen({this.id});
 
   @override
   _TreatmentDetailScreenState createState() => _TreatmentDetailScreenState();
@@ -82,7 +82,8 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                                 children: <Widget>[
                                   Text(
                                     "${categories[widget.id]['title']}",
-                                    style: Theme.of(context).textTheme.headline4,
+                                    style:
+                                        Theme.of(context).textTheme.headline4,
                                   ),
                                 ],
                               ),
@@ -127,13 +128,13 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                               "${categories[widget.id]['desc']}",
                               maxLines: _showMoreAbout ? null : 1,
                             ),
-                            FlatButton(
+                            TextButton(
                               child: Text(
                                 _showMoreAbout ? "See Less" : "See More",
                                 style: Theme.of(context)
                                     .textTheme
                                     .button
-                                    .copyWith(color: MyColors.blue),
+                                    ?.copyWith(color: MyColors.blue),
                               ),
                               onPressed: () {
                                 setState(() {
@@ -160,7 +161,7 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                                   style: Theme.of(context)
                                       .textTheme
                                       .button
-                                      .copyWith(color: MyColors.darkGreen),
+                                      ?.copyWith(color: MyColors.darkGreen),
                                 ),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
@@ -182,7 +183,8 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                             Column(
                               children: <Widget>[
                                 Text("${doctorInfo[widget.id].patientsCount}",
-                                    style: Theme.of(context).textTheme.headline6),
+                                    style:
+                                        Theme.of(context).textTheme.headline6),
                                 Text(
                                   tr('s_patients'),
                                   style: TextStyle(color: Colors.grey),
@@ -192,8 +194,10 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                             Column(
                               children: <Widget>[
                                 Text(
-                                    "${doctorInfo[widget.id].experience} " + tr('s_years'),
-                                    style: Theme.of(context).textTheme.headline6),
+                                    "${doctorInfo[widget.id].experience} " +
+                                        tr('s_years'),
+                                    style:
+                                        Theme.of(context).textTheme.headline6),
                                 Text(
                                   tr('s_experience'),
                                   style: TextStyle(color: Colors.grey),
@@ -203,7 +207,8 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                             Column(
                               children: <Widget>[
                                 Text("${doctorInfo[widget.id].certifications}",
-                                    style: Theme.of(context).textTheme.headline6),
+                                    style:
+                                        Theme.of(context).textTheme.headline6),
                                 Text(
                                   tr('s_certifications'),
                                   style: TextStyle(color: Colors.grey),
@@ -214,19 +219,25 @@ class _TreatmentDetailScreenState extends State<TreatmentDetailScreen> {
                         ),
                         SizedBox(height: 15),
                         SizedBox(
-                          width: double.infinity,
-                          child: RaisedButton(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25.0),
-                            ),
-                            color: MyColors.blue,
-                            child: Text(
-                              tr('s_make_an_appointment'),
-                              style: Theme.of(context).textTheme.button,
-                            ),
-                            onPressed: () {},
-                          ),
-                        ),
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: MyColors.blue,
+                                onPrimary: Colors.white,
+                                shadowColor: MyColors.blue,
+                                elevation: 3,
+                                textStyle: Theme.of(context).textTheme.button,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(25.0),
+                                ),
+                                //////// HERE
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                tr('s_make_an_appointment'),
+                                style: Theme.of(context).textTheme.button,
+                              ),
+                            )),
                       ],
                     ),
                   ),

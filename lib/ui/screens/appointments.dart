@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_appointment/ui/widgets/widgets.dart';
+
+import '../widgets/appBar.dart';
+import '../widgets/sideDrawer.dart';
 
 class AppointmentsScreen extends StatefulWidget {
   @override

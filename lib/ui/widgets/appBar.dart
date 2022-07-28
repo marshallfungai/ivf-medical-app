@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medical_appointment/ui/screens/profileScreen.dart';
 
 import '../../global.dart';
+import '../screens/profileScreen.dart';
 
 class MainAppBar extends StatefulWidget implements PreferredSizeWidget {
   bool hasBackButton = false;

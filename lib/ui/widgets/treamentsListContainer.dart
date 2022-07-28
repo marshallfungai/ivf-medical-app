@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:medical_appointment/ui/screens/screens.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+// import 'package:smooth_star_rating/smooth_star_rating.dart';
+
+import '../../global.dart';
+import '../screens/treatment-detail.dart';
 
 class TreatmentsListContainer extends StatelessWidget {
   final int id;
-  const TreatmentsListContainer({Key key, this.id}) : super(key: key);
+  const TreatmentsListContainer({required this.id});
 
   @override
   Widget build(BuildContext context) {
-
     var treatment = categories[id];
 
     return GestureDetector(
-      onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> TreatmentDetailScreen(id: id))),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => TreatmentDetailScreen(id: id))),
       child: Container(
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(color: Colors.black.withOpacity(.1), blurRadius: 3)
@@ -43,21 +46,21 @@ class TreatmentsListContainer extends StatelessWidget {
                       style: Theme.of(context).textTheme.subtitle2),
                   Text(
                     "${treatment['desc']}",
-                      maxLines: 2,
+                    maxLines: 2,
                     style: TextStyle(color: Colors.grey),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Flexible(
-                        child: SmoothStarRating(
-                          rating: doctorInfo[id].reviews,
-                          size: 15,
-                          color: MyColors.orange,
-                        ),
-                      ),
-                      Text("(${doctorInfo[id].reviewCount})"),
-                    ],
-                  )
+                  // Row(
+                  //   children: <Widget>[
+                  //     Flexible(
+                  //       child: SmoothStarRating(
+                  //         rating: doctorInfo[id].reviews,
+                  //         size: 15,
+                  //         color: MyColors.orange,
+                  //       ),
+                  //     ),
+                  //     Text("(${doctorInfo[id].reviewCount})"),
+                  //   ],
+                  // )
                 ],
               ),
             ),
@@ -86,7 +89,7 @@ class TreatmentsListContainer extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .button
-                          .copyWith(color: MyColors.darkGreen),
+                          ?.copyWith(color: MyColors.darkGreen),
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5.0),

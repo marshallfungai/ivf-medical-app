@@ -1,14 +1,16 @@
-# Medical Appointment and patient interaction
+# ivf_medical_app
 
-Medical appointment app, maybe for IVF
+Medical app for IVF communications with clients
 
+## Getting Started
 
-<div align="center" style="display: flex; flex-direction:row; justify-content: space-around">
-    <img src="/screenshots/Screenshot_1.png" width="150px"/> 
-    <img src="/screenshots/Screenshot_3.png" width="150px"/>  
-    <img src="/screenshots/Screenshot_4.png" width="150px"/>  
-    <img src="/screenshots/Screenshot_5.png" width="150px"/>  
-    <img src="/screenshots/Screenshot_6.png" width="150px"/>  
-    <img src="/screenshots/Screenshot_8.png" width="150px"/>  
-    <img src="/screenshots/Screenshot_9.png" width="150px"/>   
-</div>
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

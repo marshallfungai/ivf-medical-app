@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter_svg/avd.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:medical_appointment/ui/screens/profileScreen.dart';
-import 'package:medical_appointment/ui/screens/screens.dart';
+
+import '../../global.dart';
+import '../screens/aboutUs.dart';
+import '../screens/appointments.dart';
+import '../screens/auth.dart';
+import '../screens/home.dart';
+import '../screens/profileScreen.dart';
+import '../screens/settings.dart';
+import '../screens/treatments.dart';
 
 class SideDrawer extends StatefulWidget {
   @override
@@ -12,50 +16,54 @@ class SideDrawer extends StatefulWidget {
 }
 
 class _SideDrawerState extends State<SideDrawer> {
-
-  String user_email ='jenniffer@gmail.com';
+  String user_email = 'jenniffer@gmail.com';
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTextStyle(
-      style: Theme.of(context).textTheme.headline2,
+      style: const TextStyle(
+          inherit: true,
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+          decoration: TextDecoration.underline,
+          decorationColor: Colors.red,
+          decorationStyle: TextDecorationStyle.wavy,
+          color: Colors.blue),
       textAlign: TextAlign.center,
-      child: FutureBuilder<String>(
-        future: SharedPreferencesStorage.getSharedPreferenceString( 'user_email'),
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+      child: FutureBuilder<String?>(
+        future:
+            SharedPreferencesStorage.getSharedPreferenceString('user_email'),
+        builder: (BuildContext context, AsyncSnapshot<String?> snapshot) {
           var userEmail = snapshot.data;
           List<Widget> children;
           if (snapshot.hasData) {
             return Drawer(
-              // Add a ListView to the drawer. This ensures the user can scroll
-              // through the options in the drawer if there isn't enough vertical
-              // space to fit everything.
               child: ListView(
-                // Important: Remove any padding from the ListView.
                 padding: EdgeInsets.zero,
                 children: <Widget>[
                   GestureDetector(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen() ) );
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ProfileScreen()));
                     },
                     child: Container(
-                      height: MediaQuery.of(context).size.height / 4 ,
+                      height: MediaQuery.of(context).size.height / 4,
                       child: DrawerHeader(
-                        decoration: BoxDecoration(
-                          //  color: Colors.pinkAccent,
+                        decoration: const BoxDecoration(
+                            //  color: Colors.pinkAccent,
                             gradient: LinearGradient(colors: <Color>[
-                              Colors.pinkAccent,
-                              Colors.pink,
-                              Color(0xffe9008c)
-                            ])
-                        ),
+                          Colors.pinkAccent,
+                          Colors.pink,
+                          Color(0xffe9008c)
+                        ])),
                         child: ListView(
                           children: [
                             Column(
@@ -65,22 +73,23 @@ class _SideDrawerState extends State<SideDrawer> {
                                   width: 70,
                                   margin: EdgeInsets.only(top: 10, bottom: 10),
                                   decoration: BoxDecoration(
-                                    shape: BoxShape.circle ,
+                                    shape: BoxShape.circle,
                                     image: DecorationImage(
                                         image: NetworkImage("$avatar"),
-                                        fit: BoxFit.cover
-                                    ),
+                                        fit: BoxFit.cover),
                                   ),
                                   // child: Text('Drawer Header')
                                 ),
-                                Text('Zehra',
+                                Text(
+                                  'Zehra',
                                   style: TextStyle(
                                     color: Colors.white.withOpacity(.5),
                                     fontSize: 15,
                                   ),
                                 ),
                                 SizedBox(height: 4),
-                                Text( userEmail,
+                                Text(
+                                  userEmail!,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 14,
@@ -90,64 +99,93 @@ class _SideDrawerState extends State<SideDrawer> {
                             ),
                           ],
                         ),
-
                       ),
                     ),
                   ),
                   ListTile(
                     leading: Icon(Icons.home_work_outlined),
                     title: Text('Ana Sayfa'),
-                    subtitle: Text('Everything you need ',
+                    subtitle: Text(
+                      'Everything you need ',
                       style: TextStyle(
-                        //color: Colors.grey,
+                          //color: Colors.grey,
 
+                          ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
                       ),
                     ),
-                      onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => HomeScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.local_hospital),
                     title: Text(tr('s_treatments_menu')),
-                    subtitle: Text('The best doctors to serve you',
+                    subtitle: Text(
+                      'The best doctors to serve you',
                       style: TextStyle(
-                        //color: Colors.grey,
+                          //color: Colors.grey,
 
+                          ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => TreatmentsScreen(),
                       ),
                     ),
-                      onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => TreatmentsScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.calendar_today),
                     title: Text(tr('s_appointments_menu')),
-                    subtitle: Text('See the future',
+                    subtitle: Text(
+                      'See the future',
                       style: TextStyle(
-                        //color: Colors.grey,
+                          //color: Colors.grey,
 
+                          ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AppointmentsScreen(),
                       ),
                     ),
-                    onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => AppointmentsScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.business_center),
                     title: Text(tr('s_about_us_menu')),
-                    subtitle: Text('We value your happiness',
+                    subtitle: Text(
+                      'We value your happiness',
                       style: TextStyle(
-                        //color: Colors.grey,
+                          //color: Colors.grey,
 
+                          ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AboutUsScreen(),
                       ),
                     ),
-                      onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => AboutUsScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text(tr('s_settings_menu')),
-                    subtitle: Text('Control your app',
+                    subtitle: Text(
+                      'Control your app',
                       style: TextStyle(
-                        //color: Colors.grey,
+                          //color: Colors.grey,
 
+                          ),
+                    ),
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsScreen(),
                       ),
                     ),
-                    onTap:  () => Navigator.push( context, MaterialPageRoute(builder: (context) => SettingsScreen(), ), ),
                   ),
                   ListTile(
                     leading: Icon(Icons.power_settings_new),
@@ -156,24 +194,25 @@ class _SideDrawerState extends State<SideDrawer> {
                       // Update the state of the app.
                       // ...
 
-                      Navigator.push( context, MaterialPageRoute(builder: (context) => LoginScreen(), ), );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreen(),
+                        ),
+                      );
                     },
                   ),
-
                 ],
               ),
             );
           } else if (snapshot.hasError) {
-            return Center(
-
-            );
-          } else {
-              return SizedBox(
-                child: CircularProgressIndicator(),
-                width: 60,
-                height: 60,
-              );
+            return Center();
           }
+          return const SizedBox(
+            child: CircularProgressIndicator(),
+            width: 60,
+            height: 60,
+          );
         },
       ),
     );
@@ -325,6 +364,3 @@ class _SideDrawerState extends State<SideDrawer> {
     );
   }*/
 }
-
-
-

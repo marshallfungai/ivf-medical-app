@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:medical_appointment/ui/screens/screens.dart';
-import 'package:medical_appointment/ui/widgets/widgets.dart';
 
+import '../../global.dart';
+import '../widgets/appBar.dart';
+import '../widgets/doctorContainer.dart';
+import '../widgets/sideDrawer.dart';
+import 'aboutUs.dart';
+import 'treatment-detail.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,9 +16,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-
   void _openDrawer() {
-    _scaffoldKey.currentState.openDrawer();
+    _scaffoldKey.currentState?.openDrawer();
   }
 
   @override
@@ -43,21 +45,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline4
-                                    .copyWith(color: Colors.grey, fontSize: 20),
+                                    ?.copyWith(color: Colors.grey, fontSize: 20),
                               ),
                               Text(
                                 tr('app_name'),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline4
-                                    .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.pinkAccent, fontSize: 25),
+                                    ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.pinkAccent,
+                                        fontSize: 25),
                               ),
                             ],
                           ),
                         ),
-
                       ],
                     ),
                     SizedBox(height: 9),
@@ -102,20 +104,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: <Widget>[
                                     Text(
                                       tr('s_why_choose_us'),
-                                      style:
-                                      TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 17 ),
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                          fontSize: 17),
                                     ),
-                                    RaisedButton(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(25.0),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: MyColors.navyBlue,
+                                        onPrimary: Colors.white,
+                                        shadowColor: Colors.greenAccent,
+                                        elevation: 3,
+                                        textStyle:
+                                            Theme.of(context).textTheme.button,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                        ),
+                                        minimumSize:
+                                            Size(100, 40), //////// HERE
                                       ),
-                                      color: MyColors.navyBlue,
+                                      onPressed: () => Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => AboutUsScreen(),
+                                        ),
+                                      ),
                                       child: Text(
                                         tr('s_home_find_out_more_btn'),
-                                        style: Theme.of(context).textTheme.button,
+                                        style:
+                                            Theme.of(context).textTheme.button,
                                       ),
-                                      onPressed: () => Navigator.push( context, MaterialPageRoute(builder: (context) => AboutUsScreen(), ), ),
-                                    )
+                                    ),
                                   ],
                                 ),
                               ),
@@ -125,21 +145,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     SizedBox(height: 9),
-                    Text(tr('s_categories'), style: Theme.of(context).textTheme.headline6),
+                    Text(tr('s_categories'),
+                        style: Theme.of(context).textTheme.headline6),
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 9.0),
                       height: 71,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: List.generate(
-                           categories.length,
-                           (f) => GestureDetector(
-                            onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> TreatmentDetailScreen(id: f))),
+                          categories.length,
+                          (f) => GestureDetector(
+                            onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        TreatmentDetailScreen(id: f))),
                             child: Container(
                               constraints: BoxConstraints(
-                                  maxWidth: MediaQuery.of(context).size.width / 2.5
-                              ),
-                              margin: const EdgeInsets.symmetric(horizontal: 9.0),
+                                  maxWidth:
+                                      MediaQuery.of(context).size.width / 2.5),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 9.0),
                               padding: const EdgeInsets.all(9.0),
                               decoration: BoxDecoration(
                                 border: Border.all(color: MyColors.grey),
@@ -153,7 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: categories[f]['color'],
                                       borderRadius: BorderRadius.circular(9.0),
                                     ),
-                                    child: Image.asset("${categories[f]['icon']}"),
+                                    child:
+                                        Image.asset("${categories[f]['icon']}"),
                                   ),
                                   SizedBox(width: 5),
                                   Flexible(
@@ -187,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           tr("top_doctors"),
                           style: Theme.of(context).textTheme.headline6,
                         ),
-                        FlatButton(
+                        TextButton(
                           child: Text(tr('see_all')),
                           onPressed: () {},
                         )

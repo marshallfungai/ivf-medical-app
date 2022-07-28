@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:medical_appointment/global.dart';
-import 'package:medical_appointment/ui/screens/screens.dart';
-import 'package:smooth_star_rating/smooth_star_rating.dart';
+// import 'package:smooth_star_rating/smooth_star_rating.dart';
+
+import '../../global.dart';
+import '../screens/details.dart';
 
 class DoctorContainer extends StatelessWidget {
   final int id;
-  const DoctorContainer({Key key, this.id}) : super(key: key);
+  const DoctorContainer({required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -45,18 +46,18 @@ class DoctorContainer extends StatelessWidget {
                     "${doctorInfo[id].type}",
                     style: TextStyle(color: Colors.grey),
                   ),
-                  Row(
-                    children: <Widget>[
-                      Flexible(
-                        child: SmoothStarRating(
-                          rating: doctorInfo[id].reviews,
-                          size: 15,
-                          color: MyColors.orange,
-                        ),
-                      ),
-                      Text("(${doctorInfo[id].reviewCount})"),
-                    ],
-                  )
+                  // Row(
+                  //   children: <Widget>[
+                  //     Flexible(
+                  //       child: SmoothStarRating(
+                  //         rating: doctorInfo[id].reviews,
+                  //         size: 15,
+                  //         color: MyColors.orange,
+                  //       ),
+                  //     ),
+                  //     Text("(${doctorInfo[id].reviewCount})"),
+                  //   ],
+                  // )
                 ],
               ),
             ),
@@ -85,7 +86,7 @@ class DoctorContainer extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .button
-                          .copyWith(color: MyColors.darkGreen),
+                          ?.copyWith(color: MyColors.darkGreen),
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5.0),
