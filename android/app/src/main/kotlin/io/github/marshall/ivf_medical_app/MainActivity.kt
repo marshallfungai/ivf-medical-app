@@ -1,4 +1,4 @@
-package io.github.marshall.medical_appointment
+package io.github.marshall.ivf_medical_app
 
 import io.flutter.embedding.android.FlutterActivity
 
